@@ -1,0 +1,226 @@
+# PG Management System - Requirements & Dependencies
+
+## System Requirements
+
+- **OS:** Windows 10+, macOS 10.15+, or Linux (Ubuntu 18.04+)
+- **Node.js:** 18.0.0 or higher (20.x LTS recommended)
+- **Package Manager:** pnpm 8+ (npm/yarn also supported)
+- **Git:** 2.30.0 or higher
+- **RAM:** 1GB minimum (2GB for building)
+- **Disk:** 500MB for app + dependencies
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+- Mobile: iOS 14+, Android 10+
+
+## JavaScript Dependencies
+
+### Core Framework
+- next@16.2.0
+- react@19.2.4
+- react-dom@19.2.4
+- typescript@5.7.3
+
+### Database & Backend
+- @supabase/supabase-js@^2.103.0
+- @supabase/ssr@^0.10.2
+- pg@^8.20.0
+- bcryptjs@^2.4.3
+
+### UI & Styling
+- tailwindcss@^4.2.0
+- @radix-ui/* (accordion, dialog, dropdown, etc.)
+- lucide-react@^0.564.0
+- framer-motion@^12.38.0
+- clsx@^2.1.1
+- tailwind-merge@^3.3.1
+
+### Forms & Validation
+- react-hook-form@^7.54.1
+- @hookform/resolvers@^3.9.1
+- zod@^3.24.1
+
+### Charts & Data
+- recharts@2.15.0
+- date-fns@4.1.0
+- react-day-picker@9.13.2
+
+### Utilities
+- next-themes@^0.4.6
+- sonner@^1.7.1 (toast notifications)
+- dotenv@^17.4.2
+- @vercel/analytics@1.6.1
+
+### Type Definitions
+- @types/node@^22
+- @types/react@19.2.14
+- @types/react-dom@19.2.3
+- @types/bcryptjs@^2.4.6
+- @types/pg@^8.20.0
+
+## Development Dependencies
+
+- eslint@^8.0.0 (linting)
+- postcss@^8.5
+- autoprefixer@^10.4.20
+
+## External Services Required
+
+1. **Supabase** (Free tier available)
+   - PostgreSQL database
+   - Authentication system
+   - File storage for images
+   - Real-time capabilities
+   - Signup: https://supabase.com
+
+2. **Vercel** (Recommended for hosting)
+   - Free tier with generous limits
+   - Automatic deployments from Git
+   - Built-in analytics
+   - Signup: https://vercel.com
+
+## Installation
+
+### Option 1: pnpm (Recommended)
+```bash
+pnpm install
+```
+
+### Option 2: npm
+```bash
+npm install
+```
+
+### Option 3: yarn
+```bash
+yarn install
+```
+
+## Environment Setup
+
+Create `.env.local` with:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-public-key
+SUPABASE_SERVICE_ROLE_KEY=your-secret-key
+NEXT_PUBLIC_VERCEL_ANALYTICS_ID=optional
+```
+
+## Build Requirements
+
+- Build time: 2-3 minutes
+- Build output: ~200-400MB (.next folder)
+- Requires 2GB RAM during build
+
+## Runtime Requirements
+
+- Memory: 512MB minimum, 1GB recommended
+- Disk: 500MB for application files
+- Bandwidth: Varies by usage
+
+## Performance Targets
+
+- First Contentful Paint (FCP): < 2.5s
+- Largest Contentful Paint (LCP): < 4s
+- API Response Time: < 200ms average
+- Database Queries: < 100ms average
+
+## Optional Dependencies
+
+```
+# Email service
+nodemailer@^6.9.0
+
+# Payment processing
+stripe@^12.0.0
+razorpay@^2.8.0
+
+# Image processing
+sharp@^0.32.0
+
+# SMS notifications
+twilio@^4.0.0
+
+# Testing
+jest@^29.0.0
+@testing-library/react@^14.0.0
+playwright@^1.40.0
+```
+
+## Commands
+
+```bash
+# Development
+pnpm dev
+
+# Production build
+pnpm build
+
+# Start production server
+pnpm start
+
+# Linting
+pnpm lint
+
+# Dependency audit
+pnpm audit
+
+# Update dependencies
+pnpm upgrade
+```
+
+## Troubleshooting
+
+### Clear everything and reinstall
+```bash
+rm -rf node_modules pnpm-lock.yaml .next
+pnpm install
+pnpm build
+```
+
+### Check security vulnerabilities
+```bash
+pnpm audit
+pnpm audit --fix
+```
+
+### Update all dependencies
+```bash
+pnpm upgrade --latest
+```
+
+## Security Notes
+
+- Keep `.env.local` in `.gitignore` (NEVER commit)
+- Service Role Key must ONLY be used on backend
+- Enable HTTPS for production
+- Implement rate limiting on APIs
+- Validate all user inputs
+- Keep dependencies updated
+
+## Deployment Checklist
+
+- [ ] All dependencies installed: `pnpm install`
+- [ ] Environment variables set in `.env.local`
+- [ ] Database configured and migrated
+- [ ] Build successful: `pnpm build`
+- [ ] No lint errors: `pnpm lint`
+- [ ] Tested locally: `pnpm start`
+
+## Support
+
+- Package docs: See package.json dependencies
+- Supabase: https://supabase.com/docs
+- Next.js: https://nextjs.org/docs
+- React: https://react.dev
+- TypeScript: https://www.typescriptlang.org/docs
+
+---
+
+**Last Updated:** April 2024  
+**Version:** 1.0.0
